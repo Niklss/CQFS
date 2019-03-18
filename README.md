@@ -1,2 +1,2 @@
 # CQFS
-Classes quality feedback system.
+Classes quality feedback system
