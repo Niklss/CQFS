@@ -31,3 +31,5 @@ class Sys_User(models.Model):
     group = models.CharField(max_length=50)
 
     objects = User_Manager()
+
+#
