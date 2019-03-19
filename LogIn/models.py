@@ -18,7 +18,7 @@ class User_Manager(models.Manager):
 
     def create_user(self, args):
         sys_user = self.create(login=args["login"], password=args["password"], first_name=args["first_name"],
-                               last_name=args["last_name"], role=args["role"], group=args["group"])
+                               last_name=args["last_name"], role=args["role"], group=args["group"], mail=args["mail"])
         return sys_user
 
 

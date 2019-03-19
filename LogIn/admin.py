@@ -1,3 +1,4 @@
 from django.contrib import admin
+from LogIn.models import Sys_User
 
-# Register your models here.
+admin.site.register(Sys_User)
