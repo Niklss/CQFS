@@ -1,16 +1,16 @@
 .green_button {
-  background-color: #8ac249;
-  color: #fff;
+  background-color: #8ac249 !important;
+  color: #fff !important;;
 }
 
 .green_button:hover {
-  background-color: #9bcb64;
-  color: #fff;
+  background-color: #9bcb64 !important;;
+  color: #fff !important;;
 }
 
 .green_button:focus {
-  background-color: #7bac46;
-  color: #fff;
+  background-color: #7bac46 !important;;
+  color: #fff !important;;
 }
 
 .body_main {
@@ -136,4 +136,8 @@ p {
 
 .zoom:hover {
   transform: scale(1.01);
+}
+
+.btn:focus {
+  outline: none;
 }

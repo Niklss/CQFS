@@ -17,7 +17,15 @@
 <body class="body_main">
 
   <nav class="title_bar navbar navbar-expand-sm ">
-    <a class="navbar-brand" style="color:black; font-weight:bold;" href="#">CQFS</a>
+     <a class="navbar-brand" style="color:black; font-weight:bold;" href="#">CQFS</a>
+     <div class="dropdown offset-md-11 " >
+            <button type="button" class="btn" data-toggle="dropdown" style="outline-style: none;">
+                 <img src="{% static 'icons/svg/grid-two-up.svg' %}" class="content_group_icon" style="padding: 0; margin: 0;">
+            </button>
+            <div class="dropdown-menu dropdown-menu-right">
+                <a class="dropdown-item" href="/" style="color: rgba(0, 0, 0, 0.54);" >Logout</a>
+            </div>
+     </div>
   </nav>
 
   <div class=" content_box">
@@ -40,7 +48,7 @@
               <div class="col-md-1">
 
                 <!--Icon -->
-                <img src="{% static 'icons/svg/justify-left.svg' %}">
+                <img src="{% static 'icons/svg/justify-left.svg' %}" class="content_group_icon">
               </div>
 
               <!-- Text -->
