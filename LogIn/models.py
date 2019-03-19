@@ -33,4 +33,3 @@ class Sys_User(models.Model):
 
     objects = User_Manager()
 
-#
