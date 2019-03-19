@@ -29,6 +29,7 @@ class Sys_User(models.Model):
     last_name = models.CharField(max_length=50)
     role = models.IntegerField()
     group = models.CharField(max_length=50)
+    mail = models.CharField(max_length=100)
 
     objects = User_Manager()
 
