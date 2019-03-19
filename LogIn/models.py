@@ -1,36 +1,47 @@
+from django.contrib.auth.models import AbstractUser
+from django.contrib.auth.models import AbstractUser, BaseUserManager
 from django.db import models
-from django.shortcuts import get_object_or_404
+from django.utils.translation import gettext_lazy as _
+
+
+class CustomAccountManager(BaseUserManager):
+    def create_user(self, email, password, first_name, last_name, role, username=None):
+        user = self.model(email=email, first_name=first_name, last_name=last_name, role=role, password=password,
+                          username=username)
+        user.set_password(password)
+        user.is_staff = False
+        user.is_superuser = False
+        user.save(using=self._db)
+        return user
+
+    def create_superuser(self, email, password):
+        if Sys_User.objects.all().count() > 0:
+            username = 'user_{}'.format(Sys_User.objects.latest('id').id + 1)
+        else:
+            username = 'user_1'
+
+        user = self.create_user(email=email, password=password, username=username)
+        user.is_active = True
+        user.is_staff = True
+        user.is_superuser = True
+        user.save(using=self._db)
+        return user
 
 
 # Create your models here.
-class DBHelper():
-    def add_user(self, args):
-        user = Sys_User.objects.create_user(args)
-        return user
+class Sys_User(AbstractUser):
+    email = models.EmailField(_('email'), max_length=40, unique=True)
+    first_name = models.EmailField(_('email'), max_length=40, null=True)
+    last_name = models.EmailField(_('email'), max_length=40, null=True)
+    role = models.EmailField(_('email'), max_length=40, null=True)
+    USERNAME_FIELD = 'email'
+    REQUIRED_FIELDS = []
+    objects = CustomAccountManager()
 
-    def is_in_system(self, login, password):
-        try:
-            user = Sys_User.objects.get(mail=login, password=password)
-            return user
-        except:
-            return None
+    class Meta:
+        verbose_name = _('User')
 
+    verbose_name_plural = _('Users')
 
-class User_Manager(models.Manager):
-
-    def create_user(self, args):
-        sys_user = self.create(login=args["login"], password=args["password"], first_name=args["first_name"],
-                               last_name=args["last_name"], role=args["role"], group=args["group"], mail=args["mail"])
-        return sys_user
-
-
-class Sys_User(models.Model):
-    login = models.CharField(max_length=50)
-    password = models.CharField(max_length=50)
-    first_name = models.CharField(max_length=50)
-    last_name = models.CharField(max_length=50)
-    role = models.IntegerField()
-    group = models.CharField(max_length=50)
-    mail = models.CharField(max_length=100)
-
-    objects = User_Manager()
+    def __str__(self):
+        return self.email

@@ -1,18 +1,41 @@
-from django.shortcuts import render
-from . models import DBHelper
+from LogIn.models import Sys_User
+from django.shortcuts import HttpResponseRedirect, render
+from django.contrib.auth import authenticate, login, logout, update_session_auth_hash
+from django.views import View
 
+class Login(View):
 
-def login(request):
-    if len(request.GET) > 0:
-        db = DBHelper()
-        a = request.GET["email"]
-        b = request.GET["password"]
-        user = db.is_in_system(a, b)
+    def post(self, request, *args, **kwargs):
+        context = dict()
+        logout(request)
+
+        email = request.POST['email']
+        password = request.POST['password']
+        try:
+            next_page = request.POST['next']
+            if next_page == '':
+                next_page = '/'
+        except BaseException as e:
+            next_page = None
+
+        try:
+            Sys_User_inst = Sys_User.objects.get(email=email)
+        except BaseException as e:
+            context['errors'] = 'Wrong e-mail or password'
+            context['email'] = email
+            return render(request, 'login.html', context)
+
+        user = authenticate(email=email, password=password)
+
         if user is not None:
-            return render(request, 'user.html')
-    return render(request, 'login.html')
+            login(request, user)
+            if next_page is not None:
+                return HttpResponseRedirect(next_page)
+            else:
+                return HttpResponseRedirect('/user/')
 
+        return render(request, 'login.html', context)
 
-#
-# def contact(request):
-#     return render(request, 'personal/basic.html', {'content':['There is my email:', 'leonor13092000@mail.ru']})
+    def get(self, request, *args, **kwargs):
+        context = dict()
+        return render(request, 'login.html', context)
