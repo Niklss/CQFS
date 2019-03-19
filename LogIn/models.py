@@ -1,4 +1,5 @@
 from django.db import models
+from django.shortcuts import get_object_or_404
 
 
 # Create your models here.
@@ -8,10 +9,11 @@ class DBHelper():
         return user
 
     def is_in_system(self, login, password):
-        user = Sys_User.objects.get(login=login, password=password)
-        if user is not None:
+        try:
+            user = Sys_User.objects.get(mail=login, password=password)
             return user
-        return False
+        except:
+            return None
 
 
 class User_Manager(models.Manager):
@@ -32,5 +34,3 @@ class Sys_User(models.Model):
     mail = models.CharField(max_length=100)
 
     objects = User_Manager()
-
-#

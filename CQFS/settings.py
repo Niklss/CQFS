@@ -32,6 +32,7 @@ ALLOWED_HOSTS = ["192.168.1.109", "127.0.0.1"]
 
 INSTALLED_APPS = [
     'LogIn',
+    'UserPage',
     'django.contrib.admin',
     'django.contrib.auth',
     'django.contrib.contenttypes',
@@ -111,7 +112,6 @@ AUTH_PASSWORD_VALIDATORS = [
         'NAME': 'django.contrib.auth.password_validation.NumericPasswordValidator',
     },
 ]
-
 
 # Internationalization
 # https://docs.djangoproject.com/en/2.1/topics/i18n/

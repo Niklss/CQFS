@@ -1,18 +1,16 @@
 from django.shortcuts import render
-from .models import DBHelper
+from . models import DBHelper
 
 
 def login(request):
+    if len(request.GET) > 0:
+        db = DBHelper()
+        a = request.GET["email"]
+        b = request.GET["password"]
+        user = db.is_in_system(a, b)
+        if user is not None:
+            return render(request, 'user.html')
     return render(request, 'login.html')
-
-
-def sign_in(request):
-    db = DBHelper()
-    user = db.is_in_system(request.content_params["login"], request.content_params["password"])
-    if user is not False:
-        return render(request, 'user.html')
-    else:
-        return False
 
 
 #

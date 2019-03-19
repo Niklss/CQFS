@@ -23,16 +23,17 @@
 
   <div class=" signin_box">
 
-    <form class="form-signin">
+    <form class="form-signin" method="get", action="">
+        {% csrf_token %}
       <div class="">
         <h2 class="flavor-text mb10 header_2">Sign into your Personal Account</h2>
         <p class="fw400 mb0">If you don't have an account, please <a href="" class="cn">create one</a>.</p>
       </div>
       <label for="inputEmail" class="label_main">Email </label>
-      <input type="email" id="inputEmail" class="form-control" required="" autofocus="">
+      <input type="email" name="email" id="inputEmail" class="form-control" required="" autofocus="">
       <br />
       <label for="inputPassword" class="label_main">Password</label>
-      <input type="password" id="inputPassword" class="form-control" required="">
+      <input type="password" name="password" id="inputPassword" class="form-control" required="">
       <div class="checkbox">
 
       </div>
