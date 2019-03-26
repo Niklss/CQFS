@@ -20,5 +20,5 @@ def role_converter(role_num):
 def user_page(request):
     user = request.user
     return render(request, 'user.html',
-                  {'name': user.first_name + " " + user.last_name, 'email': user.email,
+                  {'name': str(user.first_name) + " " + str(user.last_name), 'email': str(user.email),
                    'role': role_converter(user.role)})

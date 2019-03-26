@@ -1,6 +1,6 @@
 from LogIn.models import Sys_User
 from django.shortcuts import HttpResponseRedirect, render
-from django.contrib.auth import authenticate, login, logout, update_session_auth_hash
+from django.contrib.auth import authenticate, login, logout
 from django.views import View
 
 class Login(View):

@@ -89,7 +89,7 @@ DATABASES = {
         'NAME': 'swp',
         'USER': 'postgres',
         'PASSWORD': 'postgres',
-        'HOST': 'localhost',
+        'HOST': 'swp.cl5kp3de4mqq.us-east-2.rds.amazonaws.com',
         'PORT': '',
     }
 }
