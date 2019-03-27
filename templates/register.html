@@ -26,18 +26,27 @@
     <form class="form-signin" method="post" action="">
         {% csrf_token %}
       <div class="">
-        <h2 class="flavor-text mb10 header_2">Sign into your Personal Account</h2>
-        <p class="fw400 mb0">If you don't have an account, please <a href="register" class="cn">create one</a>.</p>
+        <h2 class="flavor-text mb10 header_2">Register a new Personal Account</h2>
       </div>
       <label for="inputEmail" class="label_main">Email </label>
       <input type="email" name="email" id="inputEmail" class="form-control" required="" autofocus="">
       <br />
+      <label for="inputUsername" class="label_main">Username </label>
+      <input type="username" name="username" id="inputUsername" class="form-control" required="" autofocus="">
+      <br />
+      <label for="inputFirstName" class="label_main">First name </label>
+      <input type="firstname" name="firstname" id="inputFirstName" class="form-control" required="" autofocus="">
+      <br />
+      <label for="lastname" class="label_main">Last name </label>
+      <input type="lastname" name="lastname" id="inputLastName" class="form-control" required="" autofocus="">
+      <br />
       <label for="inputPassword" class="label_main">Password</label>
       <input type="password" name="password" id="inputPassword" class="form-control" required="">
+      <br />
       <div class="checkbox">
 
       </div>
-      <button class="btn btn-lg  btn-block green_button" type="submit">Sign in</button>
+      <button class="btn btn-lg  btn-block green_button" type="submit">Sign up</button>
     </form>
 
   </div>
