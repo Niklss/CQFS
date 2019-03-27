@@ -5,9 +5,9 @@ from django.utils.translation import gettext_lazy as _
 
 
 class CustomAccountManager(BaseUserManager):
-    def create_user(self, email, password, username=None):
+    def create_user(self, email, password, username=None, first_name=None, last_name=None, role=0):
         user = self.model(email=email, password=password,
-                          username=username)
+                          username=username, first_name=first_name, last_name=last_name, role=role)
         user.set_password(password)
         user.is_active = True
         user.is_staff = False
