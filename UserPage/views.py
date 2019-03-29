@@ -22,3 +22,4 @@ def user_page(request):
     return render(request, 'user.html',
                   {'name': str(user.first_name) + " " + str(user.last_name), 'email': str(user.email),
                    'role': role_converter(user.role)})
+
