@@ -17,10 +17,17 @@ from django.contrib import admin
 from django.urls import path, include
 from django.conf import settings
 from django.conf.urls.static import static
+from LogIn.api import SurveyTemplateResource, SurveyAnswerResource
+from tastypie.api import Api
+
+resources = Api(api_name='surveys')
+resources.register(SurveyTemplateResource())
+resources.register(SurveyAnswerResource())
 
 urlpatterns = [
-    path('admin/', admin.site.urls),
-    path('user/', include('UserPage.urls')),
-    path('', include('LogIn.urls')),
-    path('register/', include('Register.urls'))
-] + static(settings.STATIC_URL, document_root=settings.STATIC_ROOT)
+                  path('api/', include(resources.urls)),
+                  path('admin/', admin.site.urls),
+                  path('user/', include('UserPage.urls')),
+                  path('', include('LogIn.urls')),
+                  path('register/', include('Register.urls'))
+              ] + static(settings.STATIC_URL, document_root=settings.STATIC_ROOT)
