@@ -11,3 +11,4 @@ class SurveyAnswerResource(ModelResource):
     class Meta:
         queryset = SurveyAnswerModel.objects.all()
         resource_name = 'surveyanswer'
+
