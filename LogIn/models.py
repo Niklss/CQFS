@@ -1,5 +1,6 @@
 from django.contrib.auth.models import AbstractUser
 from django.contrib.auth.models import AbstractUser, BaseUserManager
+from django.contrib.postgres.fields import JSONField
 from django.db import models
 from django.utils.translation import gettext_lazy as _
 
@@ -48,9 +49,6 @@ class Sys_User(AbstractUser):
         return self.email
 
 
-from django.db import models
-
-
 class SurveyTemplateManager(models.Manager):
     def create_survey(self, creator_id, groups_id, json):
         survey_template = self.model(creator_id=creator_id, groups_id=groups_id, json=json)
@@ -72,7 +70,7 @@ class SurveyTemplateManager(models.Manager):
 class SurveyTemplateModel(models.Model):
     creator_id = models.ForeignKey(Sys_User, on_delete=models.CASCADE)
     groups_id = models.CharField(max_length=255)
-    json = models.CharField(max_length=2047)
+    json = JSONField()
     objects = SurveyTemplateManager()
 
     class Meta:
@@ -81,7 +79,7 @@ class SurveyTemplateModel(models.Model):
     verbose_name_plural = _('SurveyTemplates')
 
     def __str__(self):
-        return self.survey_id
+        return self.id
 
 
 class SurveyAnswerManager(models.Manager):
@@ -93,14 +91,13 @@ class SurveyAnswerManager(models.Manager):
 class SurveyAnswerModel(models.Model):
     survey_id = models.ForeignKey(SurveyTemplateModel, on_delete=models.CASCADE)
     responder_id = models.ForeignKey(Sys_User, on_delete=models.CASCADE)
-    json = models.CharField(max_length=2047)
+    json = JSONField()
     objects = SurveyAnswerManager()
 
     class Meta:
         verbose_name = _('SurveyAnswer')
 
     verbose_name_plural = _('SurveyAnswers')
-
 
     def __str__(self):
         return self.survey_id
