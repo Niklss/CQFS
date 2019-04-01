@@ -16,3 +16,4 @@ class SurveyAnswerResource(ModelResource):
         authentication = SessionAuthentication()
         resource_name = 'surveyanswer'
 
+
