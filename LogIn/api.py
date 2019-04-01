@@ -18,6 +18,7 @@ class SillyAuthentication(Authentication):
 
 
 
+
 class SurveyTemplateResource(ModelResource):
     class Meta:
         queryset = SurveyTemplateModel.objects.all()
