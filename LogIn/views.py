@@ -2,7 +2,6 @@ from LogIn.models import Sys_User
 from django.shortcuts import HttpResponseRedirect, render
 from django.contrib.auth import authenticate, login, logout
 from django.views import View
-from  django.contrib.auth.hashers import make_password
 
 class Login(View):
 
@@ -25,7 +24,7 @@ class Login(View):
             context['errors'] = 'Wrong e-mail or password'
             context['email'] = email
             return render(request, 'login.html', context)
-        password = make_password(password)
+
         user = authenticate(email=email, password=password)
 
         if user is not None:

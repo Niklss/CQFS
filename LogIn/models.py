@@ -22,7 +22,7 @@ class CustomAccountManager(BaseUserManager):
         else:
             username = 'user_1'
 
-        user = self.create_user(email=email, password=password,  username=username)
+        user = self.create_user(email=email, password=password, username=username)
         user.is_active = True
         user.is_staff = True
         user.is_superuser = True
