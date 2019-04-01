@@ -2,8 +2,8 @@ from django.shortcuts import render
 
 
 def role_converter(role_num):
-    if role_num == 0:
-        role = "Student"
+    if role_num == 5:
+        role = "Admin"
     elif role_num == 1:
         role = "Student representative"
     elif role_num == 2:
@@ -13,7 +13,7 @@ def role_converter(role_num):
     elif role_num == 4:
         role = "Department of education"
     else:
-        role = "Admin"
+        role = "Student"
     return role
 
 
