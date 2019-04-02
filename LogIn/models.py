@@ -78,7 +78,7 @@ class SurveyTemplateModel(models.Model):
 
     verbose_name_plural = _('SurveyTemplates')
 
-    def __str__(self):
+    def __int__(self):
         return self.id
 
 
@@ -99,5 +99,5 @@ class SurveyAnswerModel(models.Model):
 
     verbose_name_plural = _('SurveyAnswers')
 
-    def __str__(self):
+    def __int__(self):
         return self.survey_id
