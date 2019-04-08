@@ -19,4 +19,4 @@ You also can check out our [PM board](https://app.asana.com/0/1115910801244901/b
 
 Have a nice day owo
 
-<img style="width:100%;" src="/Undefined#3.jpg">
+<img style="width:100%;" src="Image#1.png">
