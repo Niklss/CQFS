@@ -27,7 +27,6 @@ def user_page(request):
 
 def surveys_page(request):
     req = requests.session()
-    # res = req.get(url="http://127.0.0.1:8000/api/surveys/surveyanswer", cookies=request.COOKIES)
     res = req.request(method='GET', url="http://127.0.0.1:8000/api/surveys/surveyanswer/",
                       cookies=request.COOKIES).json()
     return render(request, 'user_surveys.html', {'surveys_answer': res['objects']})
