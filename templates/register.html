@@ -2,59 +2,66 @@
 <html lang="en">
 
 <head>
-  <!-- Required meta tags -->
-  <meta charset="utf-8">
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
     {% load staticfiles %}
-  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 
-  <!-- Bootstrap CSS -->
-  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
-  <link rel="stylesheet" href="{% static 'css/signin.css' %}">
-  <link rel="stylesheet" href="{% static 'css/master.css' %}">
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
+          integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+    <link rel="stylesheet" href="{% static 'css/signin.css' %}">
+    <link rel="stylesheet" href="{% static 'css/master.css' %}">
 
-  <title>CQFS</title>
+    <title>CQFS</title>
 </head>
 
 <body class="body_main">
 
-  <nav class="title_bar navbar navbar-expand-sm ">
+<nav class="title_bar navbar navbar-expand-sm ">
     <a class="navbar-brand" style="color:black; font-weight:bold;" href="#">CQFS</a>
-  </nav>
+</nav>
 
-  <div class=" signin_box">
+<div class=" signin_box">
 
     <form class="form-signin" method="post" action="">
         {% csrf_token %}
-      <div class="">
-        <h2 class="flavor-text mb10 header_2">Register a new Personal Account</h2>
-      </div>
-      <label for="inputEmail" class="label_main">Email </label>
-      <input type="email" name="email" id="inputEmail" class="form-control" required="" autofocus="">
-      <br />
-      <label for="inputUsername" class="label_main">Username </label>
-      <input type="username" name="username" id="inputUsername" class="form-control" required="" autofocus="">
-      <br />
-      <label for="inputFirstName" class="label_main">First name </label>
-      <input type="firstname" name="firstname" id="inputFirstName" class="form-control" required="" autofocus="">
-      <br />
-      <label for="lastname" class="label_main">Last name </label>
-      <input type="lastname" name="lastname" id="inputLastName" class="form-control" required="" autofocus="">
-      <br />
-      <label for="inputPassword" class="label_main">Password</label>
-      <input type="password" name="password" id="inputPassword" class="form-control" required="">
-      <br />
-      <div class="checkbox">
+        <div class="">
+            <h2 class="flavor-text mb10 header_2">Register a new Personal Account</h2>
+        </div>
+        <label for="inputEmail" class="label_main">Email </label>
+        <input type="email" name="email" id="inputEmail" class="form-control" required="" autofocus="">
+        <br/>
+        <label for="inputUsername" class="label_main">Username </label>
+        <input type="username" name="username" id="inputUsername" class="form-control" required="" autofocus="">
+        <br/>
+        <label for="inputFirstName" class="label_main">First name </label>
+        <input type="firstname" name="firstname" id="inputFirstName" class="form-control" required="" autofocus="">
+        <br/>
+        <label for="lastname" class="label_main">Last name </label>
+        <input type="lastname" name="lastname" id="inputLastName" class="form-control" required="" autofocus="">
+        <br/>
+        <label for="inputPassword" class="label_main">Password</label>
+        <input type="password" name="password" id="inputPassword" class="form-control" required="">
+        <br/>
+        <div class="checkbox">
 
-      </div>
-      <button class="btn btn-lg  btn-block green_button" type="submit">Sign up</button>
+        </div>
+        <button class="btn btn-lg  btn-block green_button" type="submit">Sign up</button>
     </form>
 
-  </div>
-  <!-- Optional JavaScript -->
-  <!-- jQuery first, then Popper.js, then Bootstrap JS -->
-  <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
-  <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
+</div>
+<!-- Optional JavaScript -->
+<!-- jQuery first, then Popper.js, then Bootstrap JS -->
+<script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
+        integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo"
+        crossorigin="anonymous"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"
+        integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1"
+        crossorigin="anonymous"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"
+        integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM"
+        crossorigin="anonymous"></script>
 </body>
 
 </html>

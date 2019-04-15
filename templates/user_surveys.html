@@ -13,6 +13,8 @@
     <link rel="stylesheet" href="{% static 'css/master.css' %}">
 
     <title>CQFS</title>
+
+
 </head>
 
 <body class="body_main">
@@ -55,7 +57,7 @@
 
                         <!-- Text -->
                         <div class="col-md-10 content_group_icon_title">
-                            <h4>Personal information</h4>
+                            <h4>Survey answers</h4>
                         </div>
                     </div>
 
@@ -69,48 +71,15 @@
 
                 <!-- Content group element header-->
                 <div class="col-md-2 content_group_element_header">
-                    Name
+                    Answers
                 </div>
 
                 <!-- Content group element data field-->
                 <div class="col-md-5 content_group_element_data">
-                    <a href="survey_answers" class="cn">{% if name %}{{ name }}{% endif %}</a>
+                    {% if surveys_answer %}{{ surveys_answer }}{% endif %}
                 </div>
             </div>
         </div>
-
-        <!-- Content group element-->
-        <div class="col-md-7 mx-auto content_group_element zoom">
-            <div class="row">
-
-                <!-- Content group element header-->
-                <div class="col-md-2 content_group_element_header">
-                    Email
-                </div>
-
-                <!-- Content group element data field-->
-                <div class="col-md-5 content_group_element_data">
-                    {% if email %}{{ email }}{% endif %}
-                </div>
-            </div>
-        </div>
-
-        <!-- Content group element-->
-        <div class="col-md-7 mx-auto content_group_element zoom">
-            <div class="row">
-
-                <!-- Content group element header-->
-                <div class="col-md-2 content_group_element_header">
-                    Role
-                </div>
-
-                <!-- Content group element data field-->
-                <div class="col-md-5 content_group_element_data">
-                    {% if role %}{{ role }}{% endif %}
-                </div>
-            </div>
-        </div>
-
     </div>
     <!-- Content group END-->
 

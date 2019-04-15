@@ -3,6 +3,7 @@ from django.shortcuts import HttpResponseRedirect, render
 from django.contrib.auth import authenticate, login, logout
 from django.views import View
 
+
 class Login(View):
 
     def post(self, request, *args, **kwargs):
