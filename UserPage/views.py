@@ -1,5 +1,5 @@
-from django.shortcuts import render
 import requests
+from django.shortcuts import render
 
 
 def role_converter(role_num):
@@ -30,3 +30,4 @@ def surveys_page(request):
     res = req.request(method='GET', url="http://127.0.0.1:8000/api/surveys/surveyanswer/",
                       cookies=request.COOKIES).json()
     return render(request, 'user_surveys.html', {'surveys_answer': res['objects']})
+
