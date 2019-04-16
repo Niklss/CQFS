@@ -13,6 +13,11 @@
     <link rel="stylesheet" href="{% static 'css/master.css' %}">
 
     <title>CQFS</title>
+    <script>
+        function hideShowDiv(id) {
+            $('#' + id).toggle('slow');
+        }
+    </script>
 
 
 </head>
@@ -76,7 +81,13 @@
                 <div class="col-md-5 content_group_element_data">
                     {% if response.surveys_template %}
                         {% for i in response.surveys_template %}
-                            <div class="col-md-5 content_group_element_data"> "{{ i.survey_name }}"</div>
+                            <div class="col-md-5 content_group_element_data"
+                                 onclick=hideShowDiv({{ i.id }})> {{ i.survey_name }}
+                                <div id={{ i.id }} style="display:none;">
+                                    {{ i.json }}
+                                </div>
+                            </div>
+                            <br/>
                         {% endfor %}
                     {% endif %}
                 </div>
@@ -97,7 +108,14 @@
                 <div class="col-md-5 content_group_element_data">
                     {% if response.surveys_answer %}
                         {% for i in response.surveys_answer %}
-                            <div class="col-md-5 content_group_element_data"> "{{ i.survey_name }}"</div>
+                            <div class="col-md-5 content_group_element_data"
+                                 onclick=hideShowDiv(1000{{ i.id }})>
+                                {{ i.survey_name }}
+                                <div id=1000{{ i.id }} style="display:none;">
+                                    {{ i.json }}
+                                </div>
+                            </div>
+                            <br/>
                         {% endfor %}
                     {% endif %}
                 </div>
