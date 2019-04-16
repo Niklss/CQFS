@@ -65,18 +65,41 @@
             </div>
         </div>
 
+        <div class="col-md-7 mx-auto content_group_element zoom">
+            <div class="row">
+                {% if response.surveys_template %}
+                    <div class="col-md-2 content_group_element_header">
+                        Templates
+                    </div>
+                {% endif %}
+                <!-- Content group element data field-->
+                <div class="col-md-5 content_group_element_data">
+                    {% if response.surveys_template %}
+                        {% for i in response.surveys_template %}
+                            <div class="col-md-5 content_group_element_data"> "{{ i.survey_name }}"</div>
+                        {% endfor %}
+                    {% endif %}
+                </div>
+            </div>
+        </div>
+
         <!-- Content group element-->
         <div class="col-md-7 mx-auto content_group_element zoom">
             <div class="row">
-
-                <!-- Content group element header-->
-                <div class="col-md-2 content_group_element_header">
-                    Answers
-                </div>
+                {% if response.surveys_answer %}
+                    <!-- Content group element header-->
+                    <div class="col-md-2 content_group_element_header">
+                        Answers
+                    </div>
+                {% endif %}
 
                 <!-- Content group element data field-->
                 <div class="col-md-5 content_group_element_data">
-                    {% if surveys_answer %}{{ surveys_answer }}{% endif %}
+                    {% if response.surveys_answer %}
+                        {% for i in response.surveys_answer %}
+                            <div class="col-md-5 content_group_element_data"> "{{ i.survey_name }}"</div>
+                        {% endfor %}
+                    {% endif %}
                 </div>
             </div>
         </div>

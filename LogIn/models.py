@@ -68,6 +68,7 @@ class SurveyTemplateManager(models.Manager):
 
 
 class SurveyTemplateModel(models.Model):
+    survey_name = models.CharField(max_length=255)
     creator_id = models.ForeignKey(Sys_User, on_delete=models.CASCADE)
     groups_id = models.CharField(max_length=255)
     json = JSONField()
@@ -89,6 +90,7 @@ class SurveyAnswerManager(models.Manager):
 
 
 class SurveyAnswerModel(models.Model):
+    survey_name = models.CharField(max_length=255)
     survey_id = models.ForeignKey(SurveyTemplateModel, on_delete=models.CASCADE)
     responder_id = models.ForeignKey(Sys_User, on_delete=models.CASCADE)
     json = JSONField()
