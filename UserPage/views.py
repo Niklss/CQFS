@@ -1,6 +1,8 @@
 import requests
 from django.shortcuts import render
 
+from LogIn.models import StudentAndGroupsModel
+
 
 def role_converter(role_num):
     if role_num == 5:
@@ -20,9 +22,12 @@ def role_converter(role_num):
 
 def user_page(request):
     user = request.user
+    group = StudentAndGroupsModel.objects.get(student=user.id).group
+    group_str = str(group.course) + '-' + str(group)
+
     return render(request, 'user.html',
                   {'name': str(user.first_name) + " " + str(user.last_name), 'email': str(user.email),
-                   'role': role_converter(user.role)})
+                   'role': role_converter(user.role), 'group': str(group_str)})
 
 
 def surveys_page(request):

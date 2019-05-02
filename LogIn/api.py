@@ -22,8 +22,13 @@ class SurveyTemplateResource(ModelResource):
         user = bundle.request.user
         if user.role > 0:
             answer = bundle.data
-            SurveyTemplateModel.objects.create_survey(survey_name=answer.survey_name, creator_id=answer.creator_id,
-                                                      groups_id=answer.groups_id, json=answer.json)
+            template = SurveyTemplateModel.objects.create_survey(survey_name=answer.survey_name,
+                                                                 creator_id=answer.creator_id,
+                                                                 json=answer.json)
+            # if not answer.group:
+            #     groups = GroupsModel.objects.get(answer.course)
+
+
             return 200
         return 'Permission denied'
 

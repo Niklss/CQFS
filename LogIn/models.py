@@ -30,7 +30,6 @@ class CustomAccountManager(BaseUserManager):
         return user
 
 
-# Create your models here.
 class Sys_User(AbstractUser):
     email = models.EmailField(_('email'), max_length=40, unique=True)
     first_name = models.CharField(_('first_name'), max_length=40, null=True)
@@ -47,6 +46,57 @@ class Sys_User(AbstractUser):
 
     def __str__(self):
         return self.email
+
+
+class CourseManager(models.Manager):
+    def create_course(self, course_name):
+        course = self.model(course_name=course_name)
+        return course
+
+
+class CourseModel(models.Model):
+    course_name = models.CharField(max_length=40, unique=True)
+    objects = CourseManager()
+
+    class Meta:
+        verbose_name = _('Course')
+
+    verbose_name_plural = _('Courses')
+
+    def __str__(self):
+        return self.course_name
+
+
+class GroupsManager(models.Manager):
+    def create_group(self, group_name, course_id):
+        group = self.model(group_name=group_name, course_id=course_id)
+        return group
+
+
+class GroupsModel(models.Model):
+    group_name = models.CharField(max_length=40, unique=True)
+    course = models.ForeignKey(CourseModel, on_delete=models.CASCADE)
+    objects = GroupsManager()
+
+    class Meta:
+        verbose_name = _('Group')
+
+    verbose_name_plural = _('Groups')
+
+    def __str__(self):
+        return self.group_name
+
+
+class StudentAndGroupsManager(models.Manager):
+    def add_to_group(self, group_id, student_id):
+        group = self.model(group=group_id, student=student_id)
+        return group
+
+
+class StudentAndGroupsModel(models.Model):
+    group = models.ForeignKey(GroupsModel, on_delete=models.CASCADE)
+    student = models.ForeignKey(Sys_User, on_delete=models.CASCADE)
+    objects = StudentAndGroupsManager()
 
 
 class SurveyTemplateManager(models.Manager):
@@ -103,3 +153,15 @@ class SurveyAnswerModel(models.Model):
 
     def __int__(self):
         return self.survey_id
+
+
+class SurveysAndGroupsManager(models.Manager):
+    def add_to_surveys_table(self, group_id, survey_template):
+        entity = self.model(group=group_id, survey_template=survey_template)
+        return entity
+
+
+class SurveysAndGroupsModel(models.Model):
+    group = models.ForeignKey(GroupsModel, on_delete=models.CASCADE)
+    survey_template = models.ForeignKey(SurveyTemplateModel, on_delete=models.CASCADE)
+    objects = SurveysAndGroupsManager()
