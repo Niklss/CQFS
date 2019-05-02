@@ -17,6 +17,5 @@ Everyone is free to read or use this code in non-comercial way.
 
 You also can check out our [PM board](https://app.asana.com/0/1115910801244901/board).
 
-Have a nice day owo
 
-<img style="width:100%;" src="Image%231.png">
+
