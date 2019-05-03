@@ -32,9 +32,9 @@ def user_page(request):
 
 def surveys_page(request):
     req = requests.session()
-    res1 = req.request(method='GET', url="http://127.0.0.1:8000/api/surveys/surveyanswer/",
+    res1 = req.request(method='GET', url="http://10.90.138.248:8000/api/surveys/surveyanswer/",
                        cookies=request.COOKIES).json()
-    res2 = req.request(method='GET', url="http://127.0.0.1:8000/api/surveys/surveytemplate/",
+    res2 = req.request(method='GET', url="http://10.90.138.248:8000/api/surveys/surveytemplate/",
                        cookies=request.COOKIES).json()
     return render(request, 'user_surveys.html',
                   {'response': {'surveys_answer': res1['objects'], 'surveys_template': res2['objects']}})
